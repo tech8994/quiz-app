@@ -1,0 +1,68 @@
+.container{
+    width: 100%;
+}
+
+.container .progress_bar{
+    width: 100%;
+   height: 1rem;
+   position: relative;
+   
+}
+.progress_bar .nested_progress_bar{
+    background-color: #A9AAA9;
+    width: 0%;
+    height: 0.8rem;
+}
+.question_section{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+
+}
+.ind_question, .option{
+    width: 550px;
+    position: relative;
+    height: 100%;
+}
+
+.option ul{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+    padding: 20px 0px;
+    gap: 20px;
+}
+.option ul li{
+    padding: 6px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #A9AAA9;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.next_question_btn button{
+    border: 1px solid black; 
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+}
+.scores_Section{
+   margin-top: 60px;
+}
+.scores_Section .nested_scores_Section{
+    width: 100%;
+    height: 1.6rem;
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+.score_point{
+    background-color: #A9AAA9;
+    width: 0%;
+    height: 1.5rem;
+    border-radius: 6px;
+
+}
