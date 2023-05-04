@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google';
-import AllQuestion from './all_question';
+import Question from './question';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className={`min-h-screen ${inter.className}`}>
       <div>
-      <AllQuestion/>
+      <Question/>
       </div>
     </main>
   )
