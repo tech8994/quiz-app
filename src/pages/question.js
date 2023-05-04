@@ -43,7 +43,7 @@ export default function Question() {
       console.log(Object.keys(questionobj).length != 0);
     }
     return;
-  });
+  }, [progressValue,Data,loading, questionCounter, questionobj]);
 
   return (
     <div>
