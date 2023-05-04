@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "@/styles/components/all_question.module.css";
-import  DetailsQuestion  from "./detail_question";
+import  DetailsQuestion  from "./Detail_question";
 
 export default function Question() {
   let [Data, setData] = useState([]);
