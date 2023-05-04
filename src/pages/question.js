@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import styles from "@/styles/components/all_question.module.css";
 import Rating from "@mui/material/Rating";
 
-export const Question = ({
+export default function Question ({
   questionobj,
   questionCounter,
   Data,
   progressValue,
   setProgressValue,
   setQuestionCounter,
-}) => {
+}) {
 //   console.log(questionobj);
   let [newSet, setNewSet] = useState([]);
   let [showStatus, setShowStatus] = useState("");

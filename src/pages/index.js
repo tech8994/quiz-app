@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google';
-import AllQuestion from './components/all_question';
+import AllQuestion from './all_question';
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "@/styles/components/all_question.module.css";
-import { Question } from "./question";
-import { data } from "autoprefixer";
+import  Question  from "./question";
 
 export default function AllQuestion() {
   let [Data, setData] = useState([]);
