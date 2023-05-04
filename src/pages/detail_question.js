@@ -14,20 +14,19 @@ export default function DetailsQuestion ({
   let [newSet, setNewSet] = useState([]);
   let [showStatus, setShowStatus] = useState("");
   let [showPercantage, setShowPercantage]=useState(0);
-  // if(Data.length){
-  //   let { difficulty, category, question, incorrect_answers, correct_answer } = questionobj;    
-  // }
-
+  
+  let { difficulty, category, question, incorrect_answers, correct_answer } =
+    questionobj;
 
 
     let refvalue=useRef(null);
 
     // clear the duplicate elements from an array and do the suffle on every question
   useEffect(() => {
-    if (questionobj.incorrect_answers) {
-      questionobj.incorrect_answers.push(questionobj.correct_answer);
-      let respon = questionobj.incorrect_answers.filter(
-        (item, index) => questionobj.incorrect_answers.indexOf(item) === index
+    if (incorrect_answers) {
+      incorrect_answers.push(correct_answer);
+      let respon = incorrect_answers.filter(
+        (item, index) => incorrect_answers.indexOf(item) === index
       );
       let suffleArray = respon.sort(() => Math.random() - 0.5);
       setNewSet(suffleArray);
@@ -38,7 +37,7 @@ export default function DetailsQuestion ({
 
 // Get Result and select option functionality
   const getResultValue = (resp, id) => {
-    if (questionobj.correct_answer == resp) {
+    if (correct_answer == resp) {
       setShowStatus("Correct!");
      lis[id].style.backgroundColor="black";
      lis[id].style.color="white";
@@ -47,7 +46,7 @@ export default function DetailsQuestion ({
       setShowStatus("Sorry!");
       lis[id].style.border="2px solid black";
       lis.forEach((value, ind) =>{
-      if(decodeURIComponent(questionobj.correct_answer) == value.innerHTML){
+      if(decodeURIComponent(correct_answer) == value.innerHTML){
         // console.log(correct_answer == value.innerHTML);
         lis[ind].style.backgroundColor="black";
         lis[ind].style.color="white"
@@ -79,17 +78,17 @@ export default function DetailsQuestion ({
         Question: {questionCounter} of {Data.length}
       </h1>
       <div className={styles.ind_question}>
-        <p className="py-1">{questionobj.category && decodeURIComponent(questionobj.category)}</p>
-        {questionobj.difficulty == "hard" ? (
+        <p className="py-1">{category && decodeURIComponent(category)}</p>
+        {difficulty == "hard" ? (
           <Rating name="read-only" value={3} readOnly />
-        ) : questionobj.difficulty == "medium" ? (
+        ) : difficulty == "medium" ? (
           <Rating name="read-only" value={2} readOnly />
-        ) : questionobj.difficulty == "easy" ? (
+        ) : difficulty == "easy" ? (
           <Rating name="read-only" value={1} readOnly />
         ) : null}
         <div className={styles.ques_ans_section}>
           <p className="py-1 text-xl font-semibold">
-            {questionobj.question && decodeURIComponent(questionobj.question)}
+            {question && decodeURIComponent(question)}
           </p>
           <div className={styles.option}>
             {newSet && (
@@ -104,9 +103,9 @@ export default function DetailsQuestion ({
                 })}
               </ul>
             )}
-            {questionobj.showStatus && (
+            {showStatus && (
             <p className="py-4 text-4xl text-center">
-            {questionobj.showStatus}
+            {showStatus}
           </p>
             )}
 
