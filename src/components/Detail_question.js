@@ -33,11 +33,14 @@ export default function DetailsQuestion ({
       setNewSet(suffleArray);
     }
   }, [questionCounter, questionobj, incorrect_answers, correct_answer]);
-  let lis=document.querySelectorAll(".options");
-  console.log(lis);
+  // let lis=document.querySelectorAll(".options");
+  // console.log(lis);
 
 // Get Result and select option functionality
   const getResultValue = (resp, id) => {
+    let lis=document.querySelectorAll(".options");
+    console.log(lis);
+  
     console.log(resp, id);
     if (correct_answer == resp) {
       console.log(resp, id);      
@@ -64,6 +67,9 @@ export default function DetailsQuestion ({
   },[showPercantage])
 //   next Question Button Functionality
   const nextQuestionFunc = () => {
+    let lis=document.querySelectorAll(".options");
+    console.log(lis);
+  
     if(questionCounter >= Data.length){
         window.location.reload()
     };
