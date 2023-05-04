@@ -13,17 +13,18 @@ export default function DetailsQuestion ({
   let [newSet, setNewSet] = useState([]);
   let [showStatus, setShowStatus] = useState("");
   let [showPercantage, setShowPercantage]=useState(0);
+  console.log(questionobj);
   
   let { difficulty, category, question, incorrect_answers, correct_answer } =
     questionobj;
 
-    console.log(questionobj);
 
     let refvalue=useRef(null);
 
     // clear the duplicate elements from an array and do the suffle on every question
   useEffect(() => {
     if (incorrect_answers) {
+      console.log(incorrect_answers);
       incorrect_answers.push(correct_answer);
       let respon = incorrect_answers.filter(
         (item, index) => incorrect_answers.indexOf(item) === index
@@ -31,7 +32,7 @@ export default function DetailsQuestion ({
       let suffleArray = respon.sort(() => Math.random() - 0.5);
       setNewSet(suffleArray);
     }
-  }, [questionCounter, questionobj]);
+  }, [questionCounter, questionobj, incorrect_answers, correct_answer]);
   let lis=document.querySelectorAll(".options");
 //   console.log(lis);
 

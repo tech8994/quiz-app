@@ -40,9 +40,10 @@ export default function Question() {
           (questionCounter / Data.length) * 100
         }%`;
       }
+      console.log(Object.keys(questionobj).length != 0);
     }
     return;
-  }, [progressValue, []]);
+  });
 
   return (
     <div>
@@ -54,7 +55,7 @@ export default function Question() {
             <div className={styles.nested_progress_bar} ref={refObject}></div>
           </div>
           <div>
-            {!Object.keys(questionobj).length == 0  && loading == false && (
+            {Object.keys(questionobj).length != 0 ? (
               <>
                 <DetailsQuestion
                   questionobj={questionobj}
@@ -65,7 +66,7 @@ export default function Question() {
                   progressValue={progressValue}
                 />
               </>
-            )}
+            ): "Loading..." }
           </div>
         </div>
       )}
