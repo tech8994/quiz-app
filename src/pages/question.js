@@ -12,20 +12,28 @@ export default function Question() {
   //   useRef use
   let refObject = useRef(null);
   useEffect(() => {
-    setLoading(true);
-    fetch(
-      "https://raw.githubusercontent.com/Entrolics-LLC/React-Quiz/master/src/questions.json"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      });
-    setLoading(false);
+    (async() =>{
+      setLoading(true);
+     let response= await fetch("https://raw.githubusercontent.com/Entrolics-LLC/React-Quiz/master/src/questions.json");
+      const Resdata = await response.json();
+      console.log(Resdata);
+      setData(Resdata);
+      setLoading(false);
+    })();
+    // setLoading(true);
+    // fetch(
+    //   "https://raw.githubusercontent.com/Entrolics-LLC/React-Quiz/master/src/questions.json"
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setData(data);
+    //   });
+    // setLoading(false);
   }, []);
 
   //  Top Bar Section
   useEffect(() => {
-    if (Data.length) {
+    if (Data.length > 0 && loading == false) {
       setQuestionObj(Data[progressValue]);
       if (refObject.current) {
         refObject.current.style.width = `${
@@ -46,7 +54,7 @@ export default function Question() {
             <div className={styles.nested_progress_bar} ref={refObject}></div>
           </div>
           <div>
-            {!!Data.length && (
+            {!Object.keys(questionobj).length == 0  && loading == false && (
               <>
                 <DetailsQuestion
                   questionobj={questionobj}

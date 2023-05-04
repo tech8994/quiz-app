@@ -10,7 +10,6 @@ export default function DetailsQuestion ({
   setProgressValue,
   setQuestionCounter,
 }) {
-//   console.log(questionobj);
   let [newSet, setNewSet] = useState([]);
   let [showStatus, setShowStatus] = useState("");
   let [showPercantage, setShowPercantage]=useState(0);
@@ -18,6 +17,7 @@ export default function DetailsQuestion ({
   let { difficulty, category, question, incorrect_answers, correct_answer } =
     questionobj;
 
+    console.log(questionobj);
 
     let refvalue=useRef(null);
 
