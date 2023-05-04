@@ -34,15 +34,17 @@ export default function DetailsQuestion ({
     }
   }, [questionCounter, questionobj, incorrect_answers, correct_answer]);
   let lis=document.querySelectorAll(".options");
-//   console.log(lis);
+  console.log(lis);
 
 // Get Result and select option functionality
   const getResultValue = (resp, id) => {
+    console.log(resp, id);
     if (correct_answer == resp) {
+      console.log(resp, id);      
       setShowStatus("Correct!");
+      setShowPercantage(showPercantage+5)
      lis[id].style.backgroundColor="black";
      lis[id].style.color="white";
-     setShowPercantage(showPercantage+5)
     } else {
       setShowStatus("Sorry!");
       lis[id].style.border="2px solid black";
